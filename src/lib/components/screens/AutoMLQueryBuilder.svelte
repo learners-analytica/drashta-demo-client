@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { executeQueryTrainAutoML } from "$lib/scripts/fastAPI/fastapi-requests";
+    import { executeQueryTrainAutoML } from "$lib/scripts/fastAPI/fastapi-ml-requests";
 
     export let variableNames:string[]
     export let AutoMLTasks:string[]
