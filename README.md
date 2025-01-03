@@ -1,38 +1,10 @@
-# sv
+# Drashta Client
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Client for Drashta based on Sveltekit running on Bun
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Features
+* Charts.js : Charting of Business Data
+* LogiMap: Mapping of Supply Chain GIS Data
+* ML Query App : Query MLOPS just like SQL
+* EDA Editor : An interactive Data exploration system
+* Intel Map: Map out business intelligence and guide strategic decision making
