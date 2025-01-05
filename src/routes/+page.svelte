@@ -1,2 +1,7 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<button on:click={async () => {
+    const res = await fetch(import.meta.env.VITE_ANALYTICS_PACKAGE_URL, { method: 'POST' });
+}}>
+    Test POST
+</button>
+
+<pre class="pre" id="response"></pre>
