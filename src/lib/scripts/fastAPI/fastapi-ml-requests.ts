@@ -1,5 +1,6 @@
-const fastAPIUrl = import.meta.env.VITE_FAST_API_URL;
+const fastAPIUrl = import.meta.env.VITE_ANALYTICS_PACKAGE_URL;
 export async function executeQueryTrainAutoML(
+    table:string,
     variables:string[],
     target:string,
     task:string,

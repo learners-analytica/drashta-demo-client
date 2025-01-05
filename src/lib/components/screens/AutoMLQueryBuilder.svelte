@@ -10,9 +10,10 @@
     let selectedTask:string
     let selectedOptmizationMeteric:string
     let selectedTimeBudget:Number
+    let selectedTable:string
 
     function handleTrainCallback(){
-        executeQueryTrainAutoML(selectedVariables,selectedTarget,selectedTask,selectedOptmizationMeteric,selectedTimeBudget)
+        executeQueryTrainAutoML(selectedTable,selectedVariables,selectedTarget,selectedTask,selectedOptmizationMeteric,selectedTimeBudget)
     }
 </script>
 
