@@ -1,7 +1,5 @@
-<button on:click={async () => {
-    const res = await fetch(import.meta.env.VITE_ANALYTICS_PACKAGE_URL, { method: 'POST' });
-}}>
-    Test POST
-</button>
+<script>
+	import AutoMlQueryBuilder from "$lib/components/screens/AutoMLQueryBuilder.svelte";
 
-<pre class="pre" id="response"></pre>
+</script>
+<AutoMlQueryBuilder></AutoMlQueryBuilder>

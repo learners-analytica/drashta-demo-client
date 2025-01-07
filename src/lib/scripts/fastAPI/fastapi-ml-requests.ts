@@ -26,3 +26,14 @@ export async function executeQueryTrainAutoML(
           return data;
     }
 }
+
+export async function testExecuteQueryTrainAutoML() {
+    const res = await fetch(`http://0.0.0.0:8000/test`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+    });
+        const data = await res.json();
+        return data;
+}

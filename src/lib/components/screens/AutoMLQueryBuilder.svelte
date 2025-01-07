@@ -1,32 +1,13 @@
 <script lang="ts">
-    import { executeQueryTrainAutoML } from "$lib/scripts/fastAPI/fastapi-ml-requests";
+    import { executeQueryTrainAutoML, testExecuteQueryTrainAutoML } from "$lib/scripts/fastAPI/fastapi-ml-requests";
 
-    export let variableNames:string[]
-    export let AutoMLTasks:string[]
-    export let OptimizationMetrics:string[]
+    let responseText: string = '';
 
-    let selectedTarget:string
-    let selectedVariables:string[]
-    let selectedTask:string
-    let selectedOptmizationMeteric:string
-    let selectedTimeBudget:Number
-    let selectedTable:string
-
-    function handleTrainCallback(){
-        executeQueryTrainAutoML(selectedTable,selectedVariables,selectedTarget,selectedTask,selectedOptmizationMeteric,selectedTimeBudget)
+    async function handleTestCallback() {
+        responseText = await testExecuteQueryTrainAutoML();
     }
 </script>
 
-<select bind:value={selectedTask}>
-    {#each AutoMLTasks as task}
-        <option>{task}</option>
-    {/each}
-</select>
-
-<select bind:value={selectedOptmizationMeteric}>
-    {#each OptimizationMetrics as metric}
-        <option>{metric}</option>
-    {/each}
-</select>
-
+<button on:click={handleTestCallback}>Test AutoML</button>
+<p>{responseText}</p>
 

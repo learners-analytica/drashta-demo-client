@@ -2,7 +2,7 @@
 
 ## Abbreviation
 
-FCL-1.0-ALv2
+LAFCL-1.0-ALv2
 
 ## Notice
 
