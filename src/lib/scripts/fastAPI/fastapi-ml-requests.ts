@@ -28,6 +28,7 @@ export async function executeQueryTrainAutoML(
 }
 
 export async function testExecuteQueryTrainAutoML() {
+    console.log(import.meta.env.VITE_ANALYTICS_PACKAGE_URL);
     const res = await fetch(`${import.meta.env.VITE_ANALYTICS_PACKAGE_URL}/test`, {
         method: "POST",
         headers: {
