@@ -28,7 +28,7 @@ export async function executeQueryTrainAutoML(
 }
 
 export async function testExecuteQueryTrainAutoML() {
-    const res = await fetch(`http://0.0.0.0:8000/test`, {
+    const res = await fetch(`${import.meta.env.VITE_ANALYTICS_PACKAGE_URL}/test`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -37,3 +37,4 @@ export async function testExecuteQueryTrainAutoML() {
         const data = await res.json();
         return data;
 }
+
