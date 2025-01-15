@@ -1,5 +1,5 @@
 <script>
-	import AutoMlQueryBuilder from "$lib/components/screens/AutoMLQueryBuilder.svelte";
+	import LineChart from "$lib/components/charts/lineChart.svelte";
 
 </script>
-<AutoMlQueryBuilder></AutoMlQueryBuilder>
+<LineChart></LineChart>
