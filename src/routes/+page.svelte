@@ -1,5 +1,5 @@
 <script>
-	import LineChart from "$lib/components/charts/lineChart.svelte";
+	import LineChart from "$lib/components/charts/customChart.svelte";
 
 </script>
-<LineChart></LineChart>
+<LineChart chartId="chart1"></LineChart>
