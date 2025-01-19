@@ -34,6 +34,7 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-sveltekit": "^0.15.1",
+		"@types/chart.js": "^2.9.41",
 		"chartjs": "^0.3.24",
 		"svelte-chartjs": "^3.1.5"
 	}
