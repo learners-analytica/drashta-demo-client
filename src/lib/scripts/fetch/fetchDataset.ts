@@ -1,2 +1,1 @@
-import type { ChartDataset } from "chart.js";
-
+import { DatasetQueryOutput } from "@learners-analytica/drashta-types-ts"
