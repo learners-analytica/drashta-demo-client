@@ -1,30 +1,11 @@
 <script lang="ts">
-    export let tableData: JSON
+	import type { DataSeries } from "@learners-analytica/drashta-types-ts";
+	import DataColumn from "./data-column.svelte";
 
-    let columns: string[] = []
-    let data: any[] = []
-
-    if (tableData) {
-        columns = Object.keys(tableData[0])
-        data = tableData
-    }
+    export let columnSelectionCallbackFunction:(args:string)=>void
+    export let tableColumns:DataSeries[]
 </script>
 
-<table>
-    <thead>
-        <tr>
-            {#each columns as column}
-                <th>{column}</th>
-            {/each}
-        </tr>
-    </thead>
-    <tbody>
-        {#each data as row}
-            <tr>
-                {#each columns as column}
-                    <td>{row[column]}</td>
-                {/each}
-            </tr>
-        {/each}
-    </tbody>
-</table>
+{#each tableColumns as column}
+    <DataColumn callback={columnSelectionCallbackFunction} dataSeries={column} />
+{/each}
