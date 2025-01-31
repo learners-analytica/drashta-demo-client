@@ -1,7 +1,7 @@
 
 <script lang="ts">
     import type {DataSeries} from "@learners-analytica/drashta-types-ts";
-    import { iconMapDataTypes } from "$lib/scripts/utils/iconMaps";
+    import { iconMapDataTypes } from "$lib/scripts/utils/consts/iconMaps";
     export let callback:(arg:string) => void;
     export let dataSeries:DataSeries
 </script>
