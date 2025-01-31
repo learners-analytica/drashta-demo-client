@@ -34,3 +34,15 @@ export const mainColorList: string[] = [
     "black"
 ]
 
+export const returnColorStruct = (input_color:string):{fill:string, border:string} => {
+    return {
+        fill: colorMapFill[input_color],
+        border: colorMapBorder[input_color]
+    }
+}
+
+export const returnColorStringIndex = (index:number):string => {
+    index = index % mainColorList.length
+    return mainColorList[index]
+}
+

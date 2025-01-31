@@ -6,4 +6,5 @@ export type chartConfig = {
     x : string
     y : string
     type : ChartTypeRegistry
+    color : string | null
 }
