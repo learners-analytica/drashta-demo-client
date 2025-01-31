@@ -8,3 +8,11 @@ export function convertDataSeriesToChartDataSet(dataSeries:DataSeries):ChartData
         
     }
 }
+
+export function setColorToChartDataSet(chartDataset:ChartDataset,colors:{
+    borderColor:string,
+    backgroundColor:string
+}){
+    chartDataset.borderColor = colors.borderColor
+    chartDataset.backgroundColor = colors.backgroundColor
+}
