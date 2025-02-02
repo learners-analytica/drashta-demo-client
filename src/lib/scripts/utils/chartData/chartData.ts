@@ -1,5 +1,5 @@
 import type {ChartDataset} from "chart.js/auto"
-import type { DataSeries } from "@learners-analytica/drashta-types-ts";
+import type { DataSeries, pingResponse } from "@learners-analytica/drashta-types-ts";
 
 export function convertDataSeriesToChartDataSet(dataSeries:DataSeries):ChartDataset{
     return {

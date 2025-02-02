@@ -1,9 +1,5 @@
 <script>
-	import LineChart from "$lib/components/charts/custom-chart.svelte";
+	import DataView from "$lib/components/screens/dataView.svelte";
 
 </script>
-
-<div style="width: 20%;">
-	<LineChart chartId="chart1"></LineChart>
-</div>
-
+<DataView></DataView>

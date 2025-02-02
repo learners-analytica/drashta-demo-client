@@ -15,7 +15,7 @@
 		"test": "npm run test:unit -- --run"
 	},
 	"devDependencies": {
-		"@eslint/compat": "^1.2.5",
+		"@eslint/compat": "^1.2.6",
 		"@sveltejs/adapter-auto": "^3.3.1",
 		"@sveltejs/kit": "^2.16.1",
 		"@sveltejs/vite-plugin-svelte": "^4.0.4",
@@ -25,7 +25,7 @@
 		"globals": "^15.14.0",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
-		"svelte": "^5.19.4",
+		"svelte": "^5.19.6",
 		"svelte-check": "^4.1.4",
 		"typescript": "^5.7.3",
 		"typescript-eslint": "^8.22.0",
@@ -34,7 +34,8 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-sveltekit": "^0.15.5",
-		"@learners-analytica/drashta-types-ts": "^2.0.2-dev",
+		"@learners-analytica/drashta-types-ts": "^2.0.4-dev",
+		"boostrap": "^2.0.0",
 		"boxicons": "^2.1.4",
 		"chartjs": "^0.3.24",
 		"svelte-chartjs": "^3.1.5"
