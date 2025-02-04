@@ -4,32 +4,38 @@
 
     let ctx: Chart | null = null;
 
-    export const chartId: string = 'myChart';
-    export const chartType:keyof ChartTypeRegistry = 'line' as keyof ChartTypeRegistry;
-    export const chartData: ChartDataset[] = [
-        {
-            label: 'Dataset 1',
-            data: [10, 20, 30, 40, 50],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderWidth: 1
-        },
-        {
-            label: 'Dataset 2',
-            data: [15, 25, 35, 45, 55],
-            borderColor: 'rgba(153, 102, 255, 1)',
-            backgroundColor: 'rgba(153, 102, 255, 0.2)',
-            borderWidth: 1
-        }
+    export let chartId: string;
+    export let chartType:keyof ChartTypeRegistry = 'line' as keyof ChartTypeRegistry;
+    export let x:string;
+    export let y:string
+    let chartData: ChartDataset[] = [
     ];
 
-    onMount(() => {
+
+    onMount(async() => {
+        const params = new URLSearchParams({
+			columns: x,
+			target_column: y,
+			tail_size: "10"
+		});
+        const data = await fetch(`http://0.0.0.0:8000/data/?${params.toString()}`)
+			.then(response => response.json())
+			.catch(error => console.error(error));
+		console.log(data.map((row: any) => row['Date']))
+		chartData = [{
+			label: y,
+			data: data.map((row: any) => row[y]),
+			borderColor: 'rgb(255, 99, 132)',
+			fill: false,
+			tension: 0.1
+		}];
+        console.log(chartData)
         const canvas = document.getElementById(chartId) as HTMLCanvasElement;
         if (canvas) {
             ctx = new Chart(canvas, {
                 type: chartType,
                 data: {
-                    labels: [1, 2, 3, 4, 5],
+                    labels: data.map((row: any) => row[x]),
                     datasets: chartData
                 },
                 options: {}
