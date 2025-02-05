@@ -4,6 +4,7 @@ import type { DataSeries, pingResponse } from "@learners-analytica/drashta-types
 export function convertDataSeriesToChartDataSet(dataSeries:DataSeries):ChartDataset{
     return {
         label: dataSeries.seriesName,
+        //@ts-expect-error
         data: [...dataSeries.seriesData],
         
     }
