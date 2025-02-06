@@ -1,8 +1,8 @@
 import type { DataSeries, TableStructure } from "@learners-analytica/drashta-types-ts";
-export namespace GET{
+export namespace ANALYTICS_GET{
 }
 
-export namespace POST{
+export namespace ANALYTICS_POST{
     export async function executeQueryTrainAutoML(
         data_columns : string,
         task_type : string,

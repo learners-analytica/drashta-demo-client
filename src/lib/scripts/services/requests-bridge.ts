@@ -1,6 +1,6 @@
 import type { DataSeries, TableStructure } from "@learners-analytica/drashta-types-ts";
 
-export namespace GET {
+export namespace BRIDGE_GET {
   export async function tableStructures(): Promise<TableStructure[]> {
     const url = `${import.meta.env.BRIDGE_SERVER}/struct/`;
     const res = await fetch(url, {
@@ -14,7 +14,7 @@ export namespace GET {
   }
 }
 
-export namespace POST {
+export namespace BRIDGE_POST {
   export async function returnAggData(
     table: string,
     columns: string,
@@ -42,7 +42,7 @@ export namespace POST {
     return [] as DataSeries[];
   }
 
-  export async function tableData(table: string): Promise<DataSeries[]> {
+  export async function getTableData(table: string): Promise<DataSeries[]> {
     const url = `${import.meta.env.BRIDGE_SERVER}/get-data/`;
     const res = await fetch(url, {
       method: "POST",
