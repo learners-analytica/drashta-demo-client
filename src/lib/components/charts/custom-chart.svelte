@@ -7,7 +7,9 @@
     export let chartId: string;
     export let chartType:keyof ChartTypeRegistry = 'line' as keyof ChartTypeRegistry;
     export let x:string;
-    export let y:string
+    export let y:string;
+    export let borderColor:string;
+    export let fill:boolean
     let chartData: ChartDataset[] = [
     ];
 
