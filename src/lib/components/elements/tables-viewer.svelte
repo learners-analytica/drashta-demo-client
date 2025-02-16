@@ -1,11 +1,15 @@
 <script lang="ts">
-	import type { DataSeries } from "@learners-analytica/drashta-types-ts";
+    import { BRIDGE_POST } from "$lib/scripts/services/requests-bridge";
 	import DataColumn from "./data-column.svelte";
 
-    export let columnSelectionCallbackFunction:(args:string)=>void
-    export let tableColumns:DataSeries[]
+    export let table:string
+    export let callbackTableNames: (arg: string) => void;
 </script>
 
-{#each tableColumns as column}
-    <DataColumn callback={columnSelectionCallbackFunction} dataSeries={column} />
-{/each}
+{#await BRIDGE_POST.getTableData(table)}
+    loading data..
+{:then DataSeriesColumn} 
+    {#each DataSeriesColumn as column}
+        <DataColumn dataSeries={column} callback={callbackTableNames}></DataColumn> 
+    {/each}
+{/await}
