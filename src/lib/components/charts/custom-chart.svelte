@@ -2,7 +2,8 @@
     import { onMount } from 'svelte';
     import { Chart, type ChartDataset, type ChartType, type ChartTypeRegistry } from 'chart.js/auto';
     import { getTableColumnData } from '$lib/scripts/services/request.bridge';
-    import type { TDataSeries } from '@learners-analytica/drashta-types-ts';
+    import type { TColumnStructureData } from '@learners-analytica/drashta-types-ts';
+    import { MainColor, returnColorStruct } from '$lib/scripts/utils/consts/colorMap';
     let ctx: Chart | null = null;
 
     export let chartId: string;
@@ -10,12 +11,13 @@
     export let table:string;
     export let column_x:string;
     export let column_y:string
+    export let color_key:MainColor
     let chartData: ChartDataset[] = [
     ];
 
-    async function getChartData():Promise<{x:TDataSeries, y:TDataSeries}>{
-        const dataSeriesX:TDataSeries = await getTableColumnData(table,column_x);
-        const dataSeriesY:TDataSeries = await getTableColumnData(table,column_y);
+    async function getChartData():Promise<{x:TColumnStructureData, y:TColumnStructureData}>{
+        const dataSeriesX:TColumnStructureData = await getTableColumnData(table,column_x);
+        const dataSeriesY:TColumnStructureData = await getTableColumnData(table,column_y);
         return {
             x:dataSeriesX,
             y:dataSeriesY
@@ -24,14 +26,17 @@
 
 
     onMount(async() => {
+        let colorStruct = returnColorStruct(color_key)
         const {x,y} = await getChartData();
-        console.log(x.series_data)
+        console.log(x,y);
 		chartData = [{
-			label: x.series_name,
+			label: x.column_name,
             //@ts-expect-error
-			data: x.series_data,
-			borderColor: 'rgb(255, 99, 132)',
-			fill: false,
+			data: x.column_data,
+			borderColor: colorStruct.border,
+			fill: colorStruct.fill,
+            backgroundColor:colorStruct.fill,
+
 			tension: 0.1
 		}];
         const canvas = document.getElementById(chartId) as HTMLCanvasElement;
@@ -39,8 +44,7 @@
             ctx = new Chart(canvas, {
                 type: chartType,
                 data: {
-                    //@ts-expect-error
-                    labels: y.series_data,
+                    labels: y.column_data,
                     datasets: chartData
                 },
                 options: {}

@@ -22,27 +22,22 @@ export const colorMapBorder: Record<string,string> = {
     'black': "rgba(0, 0, 0, 1)"
 }
 
-export const mainColorList: string[] = [
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "blue",
-    "purple",
-    "cyan",
-    "pink",
-    "black"
-]
+export enum MainColor {
+    Red = "red",
+    Orange = "orange",
+    Yellow = "yellow",
+    Green = "green",
+    Blue = "blue",
+    Purple = "purple",
+    Cyan = "cyan",
+    Pink = "pink",
+    Black = "black"
+}
 
 export const returnColorStruct = (input_color:string):{fill:string, border:string} => {
     return {
         fill: colorMapFill[input_color],
         border: colorMapBorder[input_color]
     }
-}
-
-export const returnColorStringIndex = (index:number):string => {
-    index = index % mainColorList.length
-    return mainColorList[index]
 }
 
