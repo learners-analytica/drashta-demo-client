@@ -1,29 +1,18 @@
-import type { DataSeries, TableStructure } from "@learners-analytica/drashta-types-ts";
-
-export namespace GET {
-  export async function tableStructures(): Promise<TableStructure[]> {
-    const url = `${import.meta.env.VITE_ANALYTICS_PACKAGE_URL}/struct/`;
-    const res = await fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+import type { TDataSeries } from "@learners-analytica/drashta-types-ts";
+import { PUBLIC_BRIDGE_SERVER } from "$env/static/public";
+export async function getTableColumnData(table: string, column: string | null = null, size:number = 100): Promise<TDataSeries> {
+    const url = `http://${PUBLIC_BRIDGE_SERVER}/supabase/get-table-data/`;
+    const body = { table:table, column:column, size:size };
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
     });
-    const data = await res.json() as TableStructure[];
-    return data;
-  }
-
-  export async function tableData(): Promise<DataSeries[]> {
-    return [] as DataSeries[];
-  }
-}
-
-export namespace POST {
-    export async function returnAggData(
-        table:string,
-        columns:string,
-        agg:string
-    ){
-
+    if (!response.ok) {
+        throw new Error(`Failed to get table column data: ${response.statusText}`);
     }
+    return response.json();
 }
+

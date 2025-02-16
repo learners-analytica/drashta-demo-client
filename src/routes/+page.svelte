@@ -1,14 +1,14 @@
 <script lang='ts'>
-	import CustomChart from './../lib/components/charts/custom-chart.svelte';
 	import { onMount } from 'svelte';
-	import type { ChartDataset } from 'chart.js/auto';
+	import { PUBLIC_BRIDGE_SERVER } from '$env/static/public';
+	import { getTableColumnData } from '$lib/scripts/services/request.bridge';
+	import CustomChart from '$lib/components/charts/custom-chart.svelte';
 </script>
 
 <style>
-	.custom-chart {
-		display: inline-block;
-		width: calc(33.33% - 1em);
-		margin: 0.5em;
-	}
 </style>
 
+
+<CustomChart chartId='chart-1' chartType='bar' table='expense_request' column_x='expense_amount' column_y='expense_name'></CustomChart>
+<CustomChart chartId='chart-2' chartType='line' table='expense_request' column_x='expense_amount' column_y='expense_name'></CustomChart>
+<CustomChart chartId='chart-3' chartType='bar' table='expense_request' column_x='expense_amount' column_y='expense_name'></CustomChart>
