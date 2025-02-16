@@ -34,7 +34,7 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-sveltekit": "^0.15.5",
-		"@learners-analytica/drashta-types-ts": "^2.0.75-dev",
+		"@learners-analytica/drashta-types-ts": "^2.0.8-dev",
 		"boostrap": "^2.0.0",
 		"boxicons": "^2.1.4",
 		"chartjs": "^0.3.24",
