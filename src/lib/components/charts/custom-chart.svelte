@@ -1,7 +1,9 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { Chart, type ChartDataset, type ChartType, type ChartTypeRegistry } from 'chart.js/auto';
+    import type { BubbleDataPoint, Point } from 'chart.js/auto';
     import { getTableColumnData } from '$lib/scripts/services/request.bridge';
+    import type {TDataSeriesRaw} from "@learners-analytica/drashta-types-ts"
     import { MainColor, returnColorStruct } from '$lib/scripts/utils/consts/colorMap';
     let ctx: Chart | null = null;
 
@@ -14,9 +16,9 @@
     let chartData: ChartDataset[] = [
     ];
 
-    async function getChartData():Promise<{x:any, y:any}>{
-        const dataSeriesX:any = await getTableColumnData(table,column_x);
-        const dataSeriesY:any = await getTableColumnData(table,column_y);
+    async function getChartData():Promise<{x:TDataSeriesRaw, y:TDataSeriesRaw}>{
+        const dataSeriesX:TDataSeriesRaw = await getTableColumnData(table,column_x);
+        const dataSeriesY:TDataSeriesRaw = await getTableColumnData(table,column_y);
         return {
             x:dataSeriesX,
             y:dataSeriesY
@@ -30,7 +32,7 @@
         console.log(x,y);
 		chartData = [{
 			label: x.column_name,
-			data: x.column_data,
+			data: x.column_data as (number | [number, number] | Point | BubbleDataPoint | null)[],
 			borderColor: colorStruct.border,
 			fill: colorStruct.fill,
             backgroundColor:colorStruct.fill,
