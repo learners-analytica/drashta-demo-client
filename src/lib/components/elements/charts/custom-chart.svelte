@@ -5,20 +5,17 @@
     import { getTableColumnData } from '$lib/scripts/services/request.bridge';
     import type {TDataSeriesRaw} from "@learners-analytica/drashta-types-ts"
     import { MainColor, returnColorStruct } from '$lib/scripts/utils/consts/colorMap';
+	import type { TCustomChartConfig } from '$lib/types/user/dashboard';
     let ctx: Chart | null = null;
 
-    export let chartId: string;
-    export let chartType:keyof ChartTypeRegistry = 'line' as keyof ChartTypeRegistry;
-    export let table:string;
-    export let column_x:string;
-    export let column_y:string
-    export let color_key:MainColor
-    let chartData: ChartDataset[] = [
-    ];
+
+    export let chartConfig : TCustomChartConfig
+    export let chartId: string = crypto.randomUUID()
+    let chartData: ChartDataset[] = [];
 
     async function getChartData():Promise<{x:TDataSeriesRaw, y:TDataSeriesRaw}>{
-        const dataSeriesX:TDataSeriesRaw = await getTableColumnData(table,column_x);
-        const dataSeriesY:TDataSeriesRaw = await getTableColumnData(table,column_y);
+        const dataSeriesX:TDataSeriesRaw = await getTableColumnData(chartConfig.source_table,chartConfig.data_column);
+        const dataSeriesY:TDataSeriesRaw = await getTableColumnData(chartConfig.source_table,chartConfig.index_column);
         return {
             x:dataSeriesX,
             y:dataSeriesY
@@ -27,7 +24,7 @@
 
 
     onMount(async() => {
-        let colorStruct = returnColorStruct(color_key)
+        let colorStruct = returnColorStruct(chartConfig.color_key)
         const {x,y} = await getChartData();
         console.log(x,y);
 		chartData = [{
@@ -42,7 +39,7 @@
         const canvas = document.getElementById(chartId) as HTMLCanvasElement;
         if (canvas) {
             ctx = new Chart(canvas, {
-                type: chartType,
+                type: chartConfig.chart_type as keyof ChartTypeRegistry,
                 data: {
                     labels: y.column_data,
                     datasets: chartData
@@ -51,6 +48,7 @@
             });
         }
     });
+
 </script>
 <div>
 <canvas id={chartId}></canvas>
