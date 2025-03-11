@@ -1,19 +1,17 @@
-import type { TDataSeriesRaw } from "@learners-analytica/drashta-types-ts";
-import { PUBLIC_BRIDGE_SERVER } from '$env/static/public';
+import type { TDataSeriesRaw, TTableHead, TTableMetaData, TTableStructure } from "@learners-analytica/drashta-types-ts";
+import { bridgePostRequest, bridgeGetRequest } from "../utils/web/requestTemplates";
 
 export async function getTableColumnData(table: string, column: string | null = null, size: number = 100): Promise<TDataSeriesRaw> {
-    const url = `http://${PUBLIC_BRIDGE_SERVER}/supabase/get-table-data/`;
     const body = { table: table, column: column, size: size };
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(body)
-    });
-    if (!response.ok) {
-        throw new Error(`Failed to get table column data: ${response.statusText}`);
-    }
-    return response.json();
+    return bridgePostRequest<TDataSeriesRaw>('get-table-data', body, 'get table column data');
 }
 
+export async function getTableStructure(table:string): Promise<TTableStructure> {
+    const body = {table : table}
+    return bridgePostRequest<TTableStructure>('get-table-structure',body, 'get table list');
+}
+
+export async function getTableMetaData(table:string):Promise<TTableMetaData> {
+    const body = {table:table}
+    return bridgePostRequest<TTableMetaData>('get-table-metadata',body,'get table metadata')
+}
