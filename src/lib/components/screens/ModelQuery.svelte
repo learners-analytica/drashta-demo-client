@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ColumnButton from './../elements/column-button.svelte';
+	import ColumnButton from '../elements/ColumnButton.svelte';
 
     import type { TModelQueryAddVariableResponse } from "$lib/types/utils/misc";
     import { getTableStructure } from "$lib/scripts/services/request.bridge";

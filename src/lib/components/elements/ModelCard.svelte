@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { TModelMetadata } from "@learners-analytica/drashta-types-ts";
-    import ColoredTag from "../containers/colored-tag.svelte";
+    import ColoredTag from "../containers/ColoredTag.svelte";
     export let modelMetadata:TModelMetadata
 </script>
 
