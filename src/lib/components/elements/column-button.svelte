@@ -1,13 +1,25 @@
 <script lang="ts">
+    import type { TModelQueryAddVariableResponse } from "$lib/types/utils/misc";
     export var columnName:string
-    var state:boolean = true;
-    export let callback: (variable: string, state:boolean) => void
+    var state:boolean;
+    var selectedFirst:boolean;
+
+    $: state = true
+    $: selectedFirst = false
+
+    export let callbackModelQueryAddVariable: (variable: string) => TModelQueryAddVariableResponse
+    function handleCallback(){
+        const callbackState:TModelQueryAddVariableResponse = callbackModelQueryAddVariable(columnName)
+        state = callbackState.variableAdded
+        selectedFirst = callbackState.targetVariable
+    }
 </script>
 
-<button class="columnSelectionButton 
-{state ? 'selected' : ''}" 
-on:click={() => {state = !state; 
-    callback(columnName,state)}} 
+<button class={
+    ".columnSelectionButton " +
+    (state ? " .selected" + (selectedFirst ? " .First" : "") : "")
+} 
+on:click={() => { handleCallback()}} 
     title="{columnName}"
     aria-label="variable button: {columnName}">
 </button>
