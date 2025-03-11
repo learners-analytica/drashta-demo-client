@@ -22,3 +22,11 @@ export type TCustomChartConfig = {
 }
 
 export type TVisualizationDefinition = TCustomChartConfig[]
+
+export type TDashboardDefinition = {
+    name : string
+    description : string
+    visualization : TVisualizationDefinition
+}
+
+export type TDashboardDefinitionDoc = TDashboardDefinition[]
