@@ -1,6 +1,6 @@
-import { PUBLIC_ANALYTICS_SERVER } from '$env/static/public';
 import type { MLTaskTypes, TDataArray } from '@learners-analytica/drashta-types-ts';
 import type { TModelMetadata } from '@learners-analytica/drashta-types-ts';
+import { analyticsPostRequest, analyticsGetRequest } from '../utils/web/requestTemplates';
 
 export async function requestModelCreation(
     table: string,
@@ -10,7 +10,6 @@ export async function requestModelCreation(
     size: Number = 1000,
     task: MLTaskTypes
 ): Promise<TModelMetadata> {
-    const url = `http://${PUBLIC_ANALYTICS_SERVER}/model-gen-query`
     const body = {
         table: table,
         x: x,
@@ -18,58 +17,22 @@ export async function requestModelCreation(
         model_name: model_name,
         size: size,
         task: task
-    }
-    const response = await fetch(
-        url,
-        {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(body)
-        }
-    )
-    if (!response.ok) {
-        throw new Error(`Failed to request model generation: ${response.statusText}`);
-    }
-    return response.json();
+    };
+    return analyticsPostRequest<TModelMetadata>("model-gen-query", body, 'model generation');
 }
 
-export async function requestModelList():Promise<TModelMetadata[]>{
-    const url = `http://${PUBLIC_ANALYTICS_SERVER}/model-list`
-    const response = await fetch(
-        url,
-        {
-            method:"GET"
-        }
-    )
-    if (!response.ok) {
-        throw new Error(`Failed to get model list: ${response.statusText}`);
-    }
-    return response.json();
+export async function requestModelList(): Promise<TModelMetadata[]> {
+    return analyticsGetRequest<TModelMetadata[]>("model-list", 'model list');
 }
 
 export async function requestModelPredict(
-    x:any[],
-    model_id:string
-):Promise<TDataArray>{
-    const url = `http://${PUBLIC_ANALYTICS_SERVER}/run-predict-on-model`
+    x: any[],
+    model_id: string
+): Promise<TDataArray> {
     const body = {
-        x:x,
-        model_id:model_id
-    }
-    const response = await fetch(
-        url,
-        {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(body)
-        }
-    )
-    if (!response.ok) {
-        throw new Error(`Failed to request model generation: ${response.statusText}`);
-    }
-    return response.json(); 
+        x: x,
+        model_id: model_id
+    };
+    return analyticsPostRequest<TDataArray>("model-prediction", body, 'model prediction');
 }
+
