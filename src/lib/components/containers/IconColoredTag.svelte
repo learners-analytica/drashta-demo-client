@@ -1,0 +1,11 @@
+<script lang="ts">
+    import ColoredTag from "./ColoredTag.svelte";
+    export let content:string;
+    export let iconCode:string;
+    export let bgcolor:string;
+    export let color:string;
+</script>
+
+<ColoredTag content={content} bgcolor={bgcolor} color={color}>
+    <img class="{iconCode}" alt="{iconCode}">
+</ColoredTag>

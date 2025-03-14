@@ -6,4 +6,5 @@
 
 <div style="background-color: {bgcolor}; color: {color}">
     <span >{content}</span>
+    <slot />
 </div>
