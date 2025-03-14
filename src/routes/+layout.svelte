@@ -1,4 +1,9 @@
+<script lang="ts">
+    import NavBar from "$lib/components/menus/navBar.svelte";
+    import "../app.css";
+</script>
 <div>
-    Hello
-    <slot/>
+    <NavBar></NavBar>
 </div>
+
+<slot/>
