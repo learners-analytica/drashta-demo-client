@@ -22,7 +22,8 @@ export async function requestModelCreation(
 }
 
 export async function requestModelList(): Promise<TModelMetadata[]> {
-    return analyticsGetRequest<TModelMetadata[]>("model-list", 'model list');
+    const modelList = await analyticsGetRequest<TModelMetadata[]>("model-list", 'model list');
+    return JSON.parse(JSON.stringify(modelList));
 }
 
 export async function requestModelPredict(
