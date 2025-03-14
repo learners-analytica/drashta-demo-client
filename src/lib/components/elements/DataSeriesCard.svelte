@@ -1,9 +1,10 @@
 <script lang="ts">
 	import type { TDataSeries } from '@learners-analytica/drashta-types-ts';
 	export let columnMetaData: TDataSeries;
+	export let callback:(args:string)=>void;
 </script>
 
-<button>
+<button on:click={()=>callback(columnMetaData.column_name)}>
 <div>
 	<h1>{columnMetaData.column_name}</h1>
 	<h2>{columnMetaData.column_type}</h2>
