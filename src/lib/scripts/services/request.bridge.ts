@@ -1,4 +1,4 @@
-import type { TDataSeriesRaw, TTableHead, TTableMetaData, TTableStructure } from "@learners-analytica/drashta-types-ts";
+import type { TDataSeriesRaw, TTableMetaData, TTableStructure } from "@learners-analytica/drashta-types-ts";
 import { bridgePostRequest, bridgeGetRequest } from "../utils/web/requestTemplates";
 
 export async function getTableColumnData(table: string, column: string | null = null, size: number = 100): Promise<TDataSeriesRaw> {
@@ -8,10 +8,14 @@ export async function getTableColumnData(table: string, column: string | null = 
 
 export async function getTableStructure(table:string): Promise<TTableStructure> {
     const body = {table : table}
-    return bridgePostRequest<TTableStructure>('get-table-structure',body, 'get table list');
+    return bridgePostRequest<TTableStructure>('get-table-structure',body, 'get table structure');
 }
 
 export async function getTableMetaData(table:string):Promise<TTableMetaData> {
     const body = {table:table}
     return bridgePostRequest<TTableMetaData>('get-table-metadata',body,'get table metadata')
+}
+
+export async function getTableList():Promise<string[]> {
+    return bridgeGetRequest<string[]>('get-table-list','get table list');
 }
