@@ -3,6 +3,7 @@
 	export let columnMetaData: TDataSeries;
 </script>
 
+<button>
 <div>
 	<h1>{columnMetaData.column_name}</h1>
 	<h2>{columnMetaData.column_type}</h2>
@@ -22,9 +23,10 @@
 		<tbody>
 			<tr>
 				{#each columnMetaData.column_data as data}
-					<td>{data}</td>
+				<td>{data}</td>	
 				{/each}
 			</tr>
 		</tbody>
 	</table>
 </div>
+</button>
