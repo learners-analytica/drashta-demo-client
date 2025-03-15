@@ -1,6 +1,16 @@
 <script lang="ts">
-	import ModelBrowser from "$lib/components/screens/ModelBrowser.svelte";
-import TableBrowser from "$lib/components/screens/TableBrowser.svelte";
+	import { menu } from "$lib/scripts/client/stores";
+	import { EMenu } from "$lib/scripts/client/consts";
 </script>
 
-<ModelBrowser></ModelBrowser>
+{#if $menu === EMenu.Home}
+	<div></div>
+{:else if  $menu === EMenu.Database}
+	<div></div>	
+{:else if  $menu === EMenu.Playground}
+	<div></div>	
+{:else if  $menu === EMenu.Models}
+	<div></div>	
+{:else if  $menu === EMenu.ModelQuery}
+	<div></div>	
+{/if}
