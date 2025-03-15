@@ -37,3 +37,10 @@ export async function requestModelPredict(
     return analyticsPostRequest<TDataArray>("model-prediction", body, 'model prediction');
 }
 
+export async function requestModelDetails(model_id:string):Promise<TModelMetadata>{
+    return analyticsPostRequest<TModelMetadata>(`model-details`,{"id":model_id}, 'model details');
+}
+
+export async function requestRemoveModel(model_id:string):Promise<any>{
+    return analyticsPostRequest<any>(`remove-model`,{"id":model_id}, 'remove model');
+}
