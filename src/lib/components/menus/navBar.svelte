@@ -1,6 +1,8 @@
+<script lang="ts">
+	import { EMenu, MENUS } from "$lib/scripts/client/consts";
+</script>
 <div>
-	<button>Dashboard</button>
-	<button>Database</button>
-	<button>Models</button>
-	<button>Playground</button>
+	{#each MENUS as menu}
+		<button>{menu}</button>
+	{/each}
 </div>
