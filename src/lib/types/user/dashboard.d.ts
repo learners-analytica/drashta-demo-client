@@ -30,3 +30,5 @@ export type TDashboardDefinition = {
 }
 
 export type TDashboardDefinitionDoc = TDashboardDefinition[]
+
+export type TDashboardEntry = { name:string, index:number}
