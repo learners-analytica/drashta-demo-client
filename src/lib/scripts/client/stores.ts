@@ -42,3 +42,19 @@ export async function setDashboardFromFile(path:string):Promise<void>{
     const data = await response.json();
     setDashboard(data);
 }
+
+export function appendToDashboardAtIndex(index: number, newDashboard: TDashboardDefinition): void {
+    dashboard.update((currentDashboards) => {
+      if (currentDashboards) {
+        return [...currentDashboards.slice(0, index), newDashboard, ...currentDashboards.slice(index)];
+      } else {
+        return [newDashboard];
+      }
+    });
+  }
+
+// Current Dashboard Index
+
+export function setCurrentDashboardIndex(index:number):void{
+    currentDashboardIndex.set(index);
+}
