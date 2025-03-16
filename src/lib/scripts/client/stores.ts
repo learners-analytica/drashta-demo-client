@@ -1,12 +1,12 @@
 import { writable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
 import { EMenu } from './consts';
-import type { TDashboardDefinitionDoc } from '$lib/types/user/dashboard';
+import type { TDashboardDefinition } from '$lib/types/user/dashboard';
 import { PUBLIC_DASHBOARD_DEFINITION_DOC } from "$env/static/public";
 
 export const menu:Writable<EMenu> = writable(EMenu.Home);
 export const model_id:Writable<string|undefined> = writable("");
-export const dashboard:Writable<TDashboardDefinitionDoc|undefined> = writable(undefined);
+export const dashboard:Writable<TDashboardDefinition[]|undefined> = writable(undefined);
 
 // Menu
 
@@ -26,7 +26,7 @@ export function resetModelId():void{
 
 // Dashboard
 
-export function setDashboard(value:TDashboardDefinitionDoc):void{
+export function setDashboard(value:TDashboardDefinition[]):void{
     dashboard.set(value);
 }
 
