@@ -12,8 +12,10 @@ export type chartDescription = {
     table: string
 }
 
+export type ChartType = keyof ChartTypeRegistry
+
 export type TCustomChartConfig = {
-    chart_type : keyof ChartTypeRegistry
+    chart_type : ChartType
     source_table : str
     index_column : str
     data_column : str
