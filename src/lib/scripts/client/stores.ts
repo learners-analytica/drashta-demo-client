@@ -2,11 +2,15 @@ import { writable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
 import { EMenu } from './consts';
 import type { TDashboardDefinition } from '$lib/types/user/dashboard';
-import { PUBLIC_DASHBOARD_DEFINITION_DOC } from "$env/static/public";
 
 export const menu:Writable<EMenu> = writable(EMenu.Home);
 export const model_id:Writable<string|undefined> = writable("");
 export const dashboard:Writable<TDashboardDefinition[]|undefined> = writable(undefined);
+
+// STORES current
+
+export const currentDashboardIndex:Writable<number> = writable(0);
+
 
 // Menu
 
@@ -30,18 +34,11 @@ export function setDashboard(value:TDashboardDefinition[]):void{
     dashboard.set(value);
 }
 
-async function setDashboardFromFile(path:string):Promise<void>{
+export async function setDashboardFromFile(path:string):Promise<void>{
     const response = await fetch(`${path}`);
     if (!response.ok) {
         throw new Error(`Failed to load dashboard from file ${path}: ${response.statusText}`);
     }
     const data = await response.json();
     setDashboard(data);
-}
-
-
-export async function loadDashboard():Promise<void>{
-    if(PUBLIC_DASHBOARD_DEFINITION_DOC !== undefined){
-        await setDashboardFromFile(PUBLIC_DASHBOARD_DEFINITION_DOC);
-    }
 }
