@@ -1,2 +1,62 @@
-{}
-  
+[
+    {
+        "name": "test",
+        "description": "test",
+        "visualization": [
+            {
+                "chart_type": "bar",
+                "source_table": "expense_request",
+                "index_column": "date",
+                "data_column": "expense_amount",
+                "color_key": "blue",
+                "size": 10
+            },
+            {
+                "chart_type": "line",
+                "source_table": "expense_request",
+                "index_column": "date",
+                "data_column": "expense_amount",
+                "color_key": "blue",
+                "size": 10
+            },
+            {
+                "chart_type": "scatter",
+                "source_table": "expense_request",
+                "index_column": "date",
+                "data_column": "expense_amount",
+                "color_key": "blue",
+                "size": 10
+            }
+        ]
+    },
+    {
+        "name": "test2",
+        "description": "test",
+        "visualization": [
+            {
+                "chart_type": "bar",
+                "source_table": "expense_request",
+                "index_column": "date",
+                "data_column": "expense_amount",
+                "color_key": "blue",
+                "size": 10
+            },
+            {
+                "chart_type": "line",
+                "source_table": "expense_request",
+                "index_column": "date",
+                "data_column": "expense_amount",
+                "color_key": "blue",
+                "size": 10
+            },
+            {
+                "chart_type": "scatter",
+                "source_table": "expense_request",
+                "index_column": "date",
+                "data_column": "expense_amount",
+                "color_key": "blue",
+                "size": 10
+            }
+        ]
+    }
+]
