@@ -22,4 +22,5 @@
 on:click={() => { handleCallback()}} 
     title="{columnName}"
     aria-label="variable button: {columnName}">
+    {columnName}
 </button>
