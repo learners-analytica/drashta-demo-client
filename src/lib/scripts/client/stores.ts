@@ -10,7 +10,7 @@ export const dashboard:Writable<TDashboardDefinition[]|undefined> = writable(und
 // STORES current
 
 export const currentDashboardIndex:Writable<number> = writable(0);
-
+export const currentTable:Writable<string> = writable("");
 
 // Menu
 
