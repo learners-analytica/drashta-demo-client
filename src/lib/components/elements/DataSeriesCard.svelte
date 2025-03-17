@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { TDataSeries } from '@learners-analytica/drashta-types-ts';
+	import InputDataTable from './InputDataTable.svelte';
 	export let columnMetaData: TDataSeries;
 	export let callback:(args:string)=>void;
 </script>
