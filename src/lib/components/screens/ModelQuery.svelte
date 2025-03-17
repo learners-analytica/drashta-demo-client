@@ -5,6 +5,7 @@
     import { getTableStructure } from "$lib/scripts/services/request.bridge";
     import { currentTable } from '$lib/scripts/client/stores';
 	import { onMount } from 'svelte';
+    import { MLTaskTypes } from '@learners-analytica/drashta-types-ts';
     
     let selectedColumns:string[] = []
 
@@ -36,3 +37,13 @@
         <ColumnButton columnName={data_series.column_name} callbackModelQueryAddVariable={addVariableToSelectedColumns}></ColumnButton>
     {/each}
 {/await}
+
+<form>
+    <input type="text" placeholder="Model Name">
+    <select>
+        {#each Object.values(MLTaskTypes) as taskType}
+            <option>{taskType}</option>
+        {/each}
+    </select>
+    <button type="submit">Generate Model</button>
+</form>
