@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { TDataSeriesMinimal, TModelMetadata } from '@learners-analytica/drashta-types-ts';
+	import { modelForPlayground } from '$lib/scripts/client/playground';
 	import IconColoredTag from '../containers/IconColoredTag.svelte';
 	export let modelMetadata: TModelMetadata = JSON.parse(JSON.stringify({}));
-	export let callback: (arg: string) => void;
 </script>
 
-<button on:click={() => callback(modelMetadata.id)}>
+<button on:click={() => modelForPlayground(modelMetadata.id)}>
 	<div>
 		{console.log(modelMetadata)}
 		<div class="model-header">

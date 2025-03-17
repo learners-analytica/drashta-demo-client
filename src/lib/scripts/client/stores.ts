@@ -11,6 +11,7 @@ export const dashboard:Writable<TDashboardDefinition[]|undefined> = writable(und
 
 export const currentDashboardIndex:Writable<number> = writable(0);
 export const currentTable:Writable<string> = writable("");
+export const currentModelID:Writable<string> = writable("");
 
 // Menu
 
@@ -57,4 +58,10 @@ export function appendToDashboardAtIndex(index: number, newDashboard: TDashboard
 
 export function setCurrentDashboardIndex(index:number):void{
     currentDashboardIndex.set(index);
+}
+
+// Current Model
+
+export function setCurrentModelID(value:string):void{
+  currentModelID.set(value);
 }

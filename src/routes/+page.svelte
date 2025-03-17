@@ -7,6 +7,7 @@
 	import TableBrowser from '$lib/components/screens/TableBrowser.svelte';
 	import ModelBrowser from '$lib/components/screens/ModelBrowser.svelte';
 	import ModelQuery from '$lib/components/screens/ModelQuery.svelte';
+	import Playground from '$lib/components/screens/Playground.svelte';
 </script>
 
 {#if $menu}
@@ -23,7 +24,7 @@
 	{:else if $menu === EMenu.Models}
 		<ModelBrowser></ModelBrowser>
 	{:else if $menu === EMenu.Playground}
-		<!-- else if content here -->
+	<Playground></Playground>
 	{:else}
 		<!-- else content here -->
 	{/if}
