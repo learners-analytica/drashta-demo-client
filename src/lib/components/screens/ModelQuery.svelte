@@ -3,8 +3,8 @@
 
     import type { TModelQueryAddVariableResponse } from "$lib/types/utils/misc";
     import { getTableStructure } from "$lib/scripts/services/request.bridge";
-
-    export let table:string;
+    import { currentTable } from '$lib/scripts/client/stores';
+	import { onMount } from 'svelte';
     
     let selectedColumns:string[] = []
 
@@ -22,9 +22,14 @@
         }
     }
 
+    onMount(() => {
+        console.log($currentTable)
+        console.log("On Model Query")
+    })
+
 </script>
 
-{#await getTableStructure(table)}
+{#await getTableStructure($currentTable)}
     ...Loading Column Buttons
 {:then data} 
     {#each data.table_column_head_data as data_series}
