@@ -5,55 +5,25 @@
         "visualization": [
             {
                 "chart_type": "bar",
-                "source_table": "expense_request",
-                "index_column": "date",
-                "data_column": "expense_amount",
+                "source_table": "data",
+                "index_column": "InvoiceDate",
+                "data_column": "Quantity",
                 "color_key": "blue",
-                "size": 10
+                "size": 100
             },
             {
                 "chart_type": "line",
-                "source_table": "expense_request",
-                "index_column": "date",
-                "data_column": "expense_amount",
+                "source_table": "data",
+                "index_column": "InvoiceDate",
+                "data_column": "Quantity",
                 "color_key": "blue",
                 "size": 10
             },
             {
                 "chart_type": "scatter",
-                "source_table": "expense_request",
-                "index_column": "date",
-                "data_column": "expense_amount",
-                "color_key": "blue",
-                "size": 10
-            }
-        ]
-    },
-    {
-        "name": "test2",
-        "description": "test",
-        "visualization": [
-            {
-                "chart_type": "bar",
-                "source_table": "expense_request",
-                "index_column": "date",
-                "data_column": "expense_amount",
-                "color_key": "blue",
-                "size": 10
-            },
-            {
-                "chart_type": "line",
-                "source_table": "expense_request",
-                "index_column": "date",
-                "data_column": "expense_amount",
-                "color_key": "red",
-                "size": 10
-            },
-            {
-                "chart_type": "scatter",
-                "source_table": "expense_request",
-                "index_column": "date",
-                "data_column": "expense_amount",
+                "source_table": "data",
+                "index_column": "UnitPrice",
+                "data_column": "Quantity",
                 "color_key": "blue",
                 "size": 10
             }
