@@ -2,12 +2,12 @@
 	import type { TDataSeries } from '@learners-analytica/drashta-types-ts';
 	import InputDataTable from './InputDataTable.svelte';
 	export let columnMetaData: TDataSeries;
-	export let callback:(args:string)=>void;
 </script>
 
-<button on:click={()=>callback(columnMetaData.column_name)}>
-<div>
+<div class="flex flex-col align-start p-2 shadow-sm m-3">
+	<div class="">
 	<h1>{columnMetaData.column_name}</h1>
+	</div>
 	<h2>{columnMetaData.column_type}</h2>
 	<p>{columnMetaData.column_count}</p>
 
@@ -21,7 +21,7 @@
 		<p>Maximum: {columnMetaData.column_min}</p>
 	{/if}
 
-	<table>
+	<table class="table-fixed overflow-y-scroll flex flex-column">
 		<tbody>
 			<tr>
 				{#each columnMetaData.column_data as data}
@@ -31,4 +31,3 @@
 		</tbody>
 	</table>
 </div>
-</button>
