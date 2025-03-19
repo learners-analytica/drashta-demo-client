@@ -26,7 +26,6 @@
     onMount(async() => {
         let colorStruct = returnColorStruct(chartConfig.color_key)
         const {x,y} = await getChartData();
-        console.log(x,y);
 		chartData = [{
 			label: x.column_name,
 			data: x.column_data as (number | [number, number] | Point | BubbleDataPoint | null)[],

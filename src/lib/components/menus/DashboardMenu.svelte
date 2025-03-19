@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { TDashboardEntry } from '$lib/types/user/dashboard';
-	import { setCurrentDashboardIndex, dashboard } from '$lib/scripts/client/stores';
+	import { setCurrentDashboardIndex, dashboard,currentDashboardIndex } from '$lib/scripts/client/stores';
 	import { extractDashboardEntryList } from '$lib/scripts/client/dashboard';
 	function getDashboardEntryList():TDashboardEntry[]{
+		console.log($currentDashboardIndex)
 		if ($dashboard){
 			return extractDashboardEntryList($dashboard);	
 		}
@@ -11,7 +12,9 @@
 	}
 
 	function switchDashboardUsingIndex(index:number):void{
+		console.log($currentDashboardIndex)
 		setCurrentDashboardIndex(index)
+		location.reload()
 	}
 
 	let dashBoardEntries:TDashboardEntry[]

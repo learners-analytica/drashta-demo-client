@@ -46,7 +46,7 @@
                 "source_table": "expense_request",
                 "index_column": "date",
                 "data_column": "expense_amount",
-                "color_key": "blue",
+                "color_key": "red",
                 "size": 10
             },
             {
