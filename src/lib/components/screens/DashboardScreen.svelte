@@ -7,6 +7,8 @@
 {#await loadDashboard()}
 	...Loading Dashboard Menus
 {:then init}
+<div class="flex flex-row">
 	<DashboardMenu></DashboardMenu>
 	<Dashboard></Dashboard>
+</div>
 {/await}

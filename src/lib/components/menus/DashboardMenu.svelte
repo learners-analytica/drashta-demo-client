@@ -20,6 +20,8 @@
 	let dashBoardEntries:TDashboardEntry[]
 	$: dashBoardEntries = getDashboardEntryList();
 </script>
+<div class="h-screen w-50 shadow-sm flex justify-center items-center">
 {#each dashBoardEntries as dashboardEntry}
-	 <button on:click={() => switchDashboardUsingIndex(dashboardEntry.index)}>{dashboardEntry.name}</button>
+	 <button on:click={() => switchDashboardUsingIndex(dashboardEntry.index)} class="shadow-sm p-1 w-screen h-10 p-3 m-2 rounded-sm" >{dashboardEntry.name}</button>
 {/each}
+</div>

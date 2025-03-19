@@ -11,7 +11,7 @@
     }
 </script>
 
-<div class='.dashboard'>
+<div class='grid grid-cols-4 gap-4 w-screen'>
     {#if $dashboard}
     {#each getDashboard().visualization as chartDescription}
     <CustomChart chartConfig={chartDescription}></CustomChart>
