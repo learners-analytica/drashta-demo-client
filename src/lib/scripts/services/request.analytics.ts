@@ -35,7 +35,7 @@ export async function requestModelPredict(
         x: x,
         model_id: model_id
     };
-    return analyticsPostRequest<TDataArray>("model-prediction", body, 'model prediction');
+    return analyticsPostRequest<TDataArray>("run-predict-on-model", body, 'model prediction');
 }
 
 export async function requestModelDetails(model_id:string):Promise<TModelMetadata>{

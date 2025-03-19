@@ -1,4 +1,5 @@
 import type { TDataArray, TDataSeriesMinimal } from "@learners-analytica/drashta-types-ts";
+import { sqlTypesMap } from "../consts/typesMap";
 
 export function generateObjectArrayFromTDataSeries(columnsData: TDataSeriesMinimal[], size: number) {
     let objectArray: TDataArray = [];
@@ -14,4 +15,20 @@ export function generateObjectArrayFromTDataSeries(columnsData: TDataSeriesMinim
     }
 
     return objectArray;
+}
+
+export function generateTabularColumnMetaData(columnsData: TDataSeriesMinimal[]):{
+    title: string;
+    field: string;
+    editor: string;
+}[] {
+    const columnsMetaData:{title:string, field:string, editor:string}[] = [];
+    columnsData.forEach((column) => {
+        columnsMetaData.push({
+            title: column.column_name,
+            field: column.column_name,
+            editor: sqlTypesMap[column.column_type] || "string"
+        });
+    });
+    return columnsMetaData;
 }
