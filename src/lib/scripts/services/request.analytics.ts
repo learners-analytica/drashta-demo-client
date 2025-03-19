@@ -8,7 +8,8 @@ export async function requestModelCreation(
     y: string,
     model_name: string,
     size: Number = 1000,
-    task: MLTaskTypes
+    task: MLTaskTypes,
+    time_budget: number
 ): Promise<TModelMetadata> {
     const body = {
         table: table,
@@ -16,7 +17,8 @@ export async function requestModelCreation(
         y: y,
         model_name: model_name,
         size: size,
-        task: task
+        task: task,
+        time_budget: time_budget
     };
     return analyticsPostRequest<TModelMetadata>("model-gen-query", body, 'model generation');
 }

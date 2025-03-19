@@ -13,10 +13,11 @@
     let selectedColumns:string[] = []
     let model_name:string = ""
     let model_task:MLTaskTypes = MLTaskTypes.REGRESSION
-
+    let model_time_budget:number = 1
     $: selectedColumns = []
     $: model_name
     $: model_task
+    $: model_time_budget
 
     function addVariableToSelectedColumns(variable:string):TModelQueryAddVariableResponse{
         if(selectedColumns.includes(variable)){
@@ -42,7 +43,8 @@
             y_columns,
             model_name,
             1000,
-            model_task
+            model_task,
+            model_time_budget
         )
         setMenu(EMenu.Models)
     }
@@ -68,5 +70,6 @@
             <option>{taskType}</option>
         {/each}
     </select>
+    <input type="number" min="1" bind:value={model_time_budget}>
     <button type="submit">Generate Model</button>
 </form>
