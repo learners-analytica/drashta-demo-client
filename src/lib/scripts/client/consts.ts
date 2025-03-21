@@ -6,4 +6,8 @@ export enum EMenu {
     ModelQuery = "ModelQuery"
 }
 
-export const MENUS = Object.values(EMenu);
+export const MENUS = [
+    EMenu.Home,
+    EMenu.Database,
+    EMenu.Models,
+]

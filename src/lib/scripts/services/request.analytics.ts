@@ -30,7 +30,7 @@ export async function requestModelList(): Promise<TModelMetadata[]> {
 }
 
 export async function requestModelPredict(
-    x: any[],
+    x: TDataArray|undefined,
     model_id: string
 ): Promise<TDataArray> {
     const body = {

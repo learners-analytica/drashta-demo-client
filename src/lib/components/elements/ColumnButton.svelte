@@ -15,9 +15,8 @@
     }
 </script>
 
-<button class={
-    ".columnSelectionButton " +
-    (state ? " .selected" + (selectedFirst ? " .First" : "") : "")
+<button class={"p-2 rounded-sm shadow-md m-2 w-30 " +
+    (state ? "bg" + (selectedFirst ? "-orange-100" : "-blue-100") : "")
 } 
 on:click={() => { handleCallback()}} 
     title="{columnName}"
