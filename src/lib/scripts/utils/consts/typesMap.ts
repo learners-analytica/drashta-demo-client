@@ -6,5 +6,6 @@ export const sqlTypesMap: Record<string, string> = {
     "bool": "boolean",
     "real": "number",
     "double": "number",
-    "timestamp": "datetime"  // Change to "datetime"
+    "timestamp": "datetime",  // Change to "datetime"
+    "double precision" : "number"
 };
