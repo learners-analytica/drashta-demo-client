@@ -9,9 +9,9 @@
     }
 </script>
 
-<button on:click={() => tableForModelQuery(TableMetaData.table_name)} class="w-full p-2 shadow-sm"><h1>{TableMetaData.table_name}</h1></button>
+<button on:click={() => tableForModelQuery(TableMetaData.table_name)} class="w-full p-2 shadow-sm font-bold"><h1>{TableMetaData.table_name}</h1></button>
 <div class="overflow-x-scroll w-200vh flex flex-row">
-{#each TableMetaData.table_data_series as data_series}
-    <DataSeriesCard columnMetaData={data_series}></DataSeriesCard>
+{#each TableMetaData.table_data_series as data_series,index}
+    <DataSeriesCard columnMetaData={data_series} colorIndex={index}></DataSeriesCard>
 {/each}
 </div>

@@ -34,6 +34,18 @@ export const colorMapTints:Record<string,string> = {
     'black': "rgba(0, 0, 0, 0.2)"
 }
 
+export const colorMapTailWind:Record<string,string> = {
+    'red': "bg-red-200",
+    'orange': "bg-orange-200",
+    'yellow': "bg-yellow-200",
+    'green': "bg-green-200",
+    'blue': "bg-blue-200",
+    'purple': "bg-purple-200",
+    'cyan': "bg-cyan-200",
+    'pink': "bg-pink-200",
+    'black': "bg-black"
+}
+
 export enum MainColor {
     Red = "red",
     Orange = "orange",
