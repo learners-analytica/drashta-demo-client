@@ -4,7 +4,7 @@
     var state:boolean;
     var selectedFirst:boolean;
 
-    $: state = true
+    $: state = false
     $: selectedFirst = false
 
     export let callbackModelQueryAddVariable: (variable: string) => TModelQueryAddVariableResponse
@@ -15,8 +15,8 @@
     }
 </script>
 
-<button class={"p-2 rounded-sm shadow-md m-2 w-30 " +
-    (state ? "bg" + (selectedFirst ? "-orange-100" : "-blue-100") : "")
+<button class={"p-2 rounded-sm m-2 w-30 " +
+    (state ? "inset-shadow-md " + (selectedFirst ? "bg-orange-100" : "bg-blue-100") : "shadow-md")
 } 
 on:click={() => { handleCallback()}} 
     title="{columnName}"

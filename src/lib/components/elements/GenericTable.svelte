@@ -1,5 +1,6 @@
 <script lang="ts">
     import { TabulatorFull as Tabulator } from "tabulator-tables";
+    import "tabulator-tables/dist/css/tabulator.min.css";
     import { onMount } from "svelte";
 	import type { TDataArray } from "@learners-analytica/drashta-types-ts";
     export let data
@@ -12,6 +13,7 @@
         return tableInstance?.getData();
     }
     onMount(() => {
+        console.log(columns)
 		if (tableComponent) {
 			tableInstance = new Tabulator(tableComponent, {
 				data: data,
@@ -24,4 +26,4 @@
     })
 </script>
 
-<div bind:this={tableComponent}></div>
+<div bind:this={tableComponent} class="w-full h-full m-3 overflow-auto rounded-lg shadow-lg border border-gray-200"></div>

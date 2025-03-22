@@ -32,7 +32,6 @@
 			borderColor: colorStruct.border,
 			fill: colorStruct.fill,
             backgroundColor:colorStruct.fill,
-
 			tension: 0.1
 		}];
         const canvas = document.getElementById(chartId) as HTMLCanvasElement;

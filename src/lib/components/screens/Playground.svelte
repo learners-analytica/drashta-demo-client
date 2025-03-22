@@ -7,6 +7,7 @@
 	import { TabulatorFull as Tabulator } from 'tabulator-tables';
 	import GenericTable from '../elements/GenericTable.svelte';
 	import { Chart} from 'chart.js';
+	import type { BubbleDataPoint,Point } from 'chart.js';
 
 	let predictions: any = { predictions: [] };
 	let data_columns: TDataSeriesMinimal[] = [];
@@ -18,7 +19,6 @@
 	async function predict() {
 		let x: TDataArray|undefined = await tableInstance.getData();
 		predictions = await requestModelPredict(x, $currentModelID);
-		console.log(predictions);
 		updateChart();
 	}
 
@@ -42,20 +42,25 @@
 			}
 		});
 		await loadModelData();
+		updateChart()
 	});
 
 	function updateChart() {
-		if (!chart || !predictions || !predictions.predictions) return;
-		
-		chart.data.labels = Array.from({ length: predictions.predictions[0]?.predictions?.length || 0 }, (_, i) => i);
-		chart.data.datasets = predictions.predictions.map((pred: any) => ({
-			label: pred.column_name,
-			data: pred.predictions,
-			borderColor: pred.column_color || getRandomColor(),
-			fill: false
-		}));
-		chart.update();
-	}
+	const columnKey = data_columns[0]?.column_name as string;
+	console.log(data_columns)
+	const valuesArray = columnKey ? tableInstance.getData()?.map(obj => (obj as any)[columnKey]) : [];
+	console.log(valuesArray)
+    chart.data.labels = valuesArray; // Ensure labels match the dataset length
+    chart.data.datasets = [{
+        label: 'Predictions',
+        data: predictions.predictions,
+        borderColor: getRandomColor(),
+        fill: false,
+        borderWidth: 2
+    }];
+
+    chart.update();
+}
 	
 	function getRandomColor() {
 		const letters = '0123456789ABCDEF';
@@ -67,25 +72,12 @@
 	}
 </script>
 
-{#await loadModelData() then value}
-	<GenericTable data={converted_table_data} columns={columns_meta_data} bind:this={tableInstance}></GenericTable>
-{/await}
-
 <div class="chart-container" style="position: relative; height:400px; width:100%">
 	<canvas id="chart"></canvas>
 </div>
 
-<button on:click={() => predict()}>Predict</button>
+{#await loadModelData() then value}
+	<GenericTable data={converted_table_data} columns={columns_meta_data} bind:this={tableInstance}></GenericTable>
+{/await}
 
-{#if predictions.predictions && predictions.predictions.length > 0}
-	<div class="predictions-summary">
-		<h3>Prediction Summary</h3>
-		{#each predictions.predictions as prediction}
-			<div class="prediction-item">
-				<span style="color: {prediction.column_color || 'black'}">
-					{prediction.column_name}: {prediction.predictions?.length || 0} predictions
-				</span>
-			</div>
-		{/each}
-	</div>
-{/if}
+<button on:click={() => predict()} class="rounded-sm shadow-sm p-3 m-1">Predict</button>
