@@ -21,16 +21,18 @@
 	<p>Minimum: {columnMetaData.column_max !== null ? columnMetaData.column_max : 'NA'}</p>
 	<p>Maximum: {columnMetaData.column_min !== null ? columnMetaData.column_min : 'NA'}</p>
 	<h3>Data Preview</h3>
-<div class="table-container w-90 h-90 overflow-auto">
+<div class="table-container w-90 h-20 overflow-auto">
+	<!--
     <table class="table-auto w-90 h-90 shadow-sm  rounded-sm p-1">
         <tbody class="overflow-y-scroll w-full h-90">
             {#each columnMetaData.column_data as data}
             <tr class="border-0	 m-1">
-                <td class="border-0 text-left shadow-sm p-1 m-1">{data}</td>    
+                <td class="border-0 text-left p-1 m-1">{data}</td>    
             </tr>
             {/each}
         </tbody>
     </table>
+-->
 </div>
 </div>
 </div>

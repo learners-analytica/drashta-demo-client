@@ -5,7 +5,6 @@
     export let bgcolor:string;
     export let color:string;
 </script>
-
 <ColoredTag content={content} bgcolor={bgcolor} color={color}>
-    <img class="{iconCode}" alt="{iconCode}">
+    <i class='bx bx-dots-vertical'></i>
 </ColoredTag>

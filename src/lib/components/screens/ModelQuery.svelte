@@ -63,7 +63,7 @@
     {/each}
 {/await}
 
-<form on:submit={handleSubmitModelQuery}>
+<form on:submit={handleSubmitModelQuery} class='flex flex-col'>
     <input type="text" placeholder="Model Name" bind:value={model_name}>
     <select bind:value={model_task}>
         {#each Object.values(MLTaskTypes) as taskType}
