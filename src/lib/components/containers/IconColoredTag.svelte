@@ -6,5 +6,5 @@
     export let color:string;
 </script>
 <ColoredTag content={content} bgcolor={bgcolor} color={color}>
-    <i class='bx bx-dots-vertical'></i>
+    <i class={iconCode}></i>
 </ColoredTag>
