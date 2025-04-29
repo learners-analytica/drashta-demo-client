@@ -12,9 +12,9 @@ export const sqlTypesMap: Record<string, string> = {
 };
 
 export const sqlTypeIconMaps : Record<string,string> ={
-    "int": "number",
+    "int": "bx bx-bar-chart",
     "float": "number",
-    "string": "string",
+    "string": "bx bx-text",
     "date": "datetime",  // Change to "datetime" (Tabulator's expected value)
     "bool": "tickCross",
     "real": "number",

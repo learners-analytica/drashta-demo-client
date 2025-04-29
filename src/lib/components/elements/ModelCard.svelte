@@ -18,7 +18,7 @@
 		<div class="">
 			{#each modelMetadata.target as targets}
 				<IconColoredTag
-					iconCode={targets.column_type}
+					iconCode={"bx bx-bullseye"}
 					content={targets.column_name}
 					bgcolor="#FFA500"
 					color="#fff"

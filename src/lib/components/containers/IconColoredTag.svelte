@@ -7,5 +7,5 @@
     export let color:string;
 </script>
 <ColoredTag content={content} bgcolor={bgcolor} color={color}>
-    <i class={iconMapDataTypes[iconCode]}></i>
+    <i class={iconCode}></i>
 </ColoredTag>
