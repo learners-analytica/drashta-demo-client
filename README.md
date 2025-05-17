@@ -13,13 +13,13 @@ Client for Drashta-Demo Prototype based on Sveltekit running on Bun
 5. Model Prediction : Load Models and predict by manully inputting data, automticlly detects model's input and their datatypes and creates a input table using tabulator and charts model predictions
 
 # Packages
-See : `packages.json`
-The Client also depends on a currently depriciated types package [`drashta-types-ts`](https://github.com/learners-analytica/drashta-types-ts)
+* See : `packages.json`
+* The Client also depends on a currently depriciated types package [`drashta-types-ts`](https://github.com/learners-analytica/drashta-types-ts)
 
-#Running
-Run these commands in sequence
-`bun install`
-`bun run dev`
+# Running
+* Run these commands in sequence
+* `bun install`
+* `bun run dev`
 
-open [`localhost:5173`](https://localhost:5173)
+* open [`localhost:5173`](https://localhost:5173)
 
