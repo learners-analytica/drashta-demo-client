@@ -2,19 +2,15 @@
 
 ![Svelte](https://img.shields.io/badge/SvelteKit-FF3E00?style=for-the-badge&logo=Svelte&logoColor=white)
 ![TS](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
-![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=Leaflet&logoColor=white-)
-![Chart](https://img.shields.io/badge/Chart%20js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
-![ESL](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
-![Preety](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
+![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white)
 ![Bun](https://img.shields.io/badge/bun-282a36?style=for-the-badge&logo=bun&logoColor=fbf0df)
 
 
 Client for Drashta based on Sveltekit running on Bun
 
-## Features
-* Charts.js : Charting of Business Data
-* LogiMap: Mapping of Supply Chain GIS Data
-* ML Query App : Query MLOPS just like SQL
-* EDA Editor : An interactive Data exploration system
-* Intel Map: Map out business intelligence and guide strategic decision making
+# Features
+1. Dashboard System : Dashborad system based on chart.js, queries data and displays as chart configured in a json file
+2. Database Schema Viewer : Allows viewing of Database tables, columns with metadata such as data type, min, max, avg and count of records
+3. Model Generator : Generate Models using a simple form system, Select a table in Database Schema Viewer, Select variables to be modelled, orange colored button is the dependent and blue is independent variables, fill other details and select generate model
+4. Model File viewer : View generated Models and use them to predict
+5. Model Prediction : Load Models and predict by manully inputting dta, automticlly detects model's input and their datatypes as well as charts them
