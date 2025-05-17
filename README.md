@@ -1,9 +1,9 @@
-# Drashta Client
+# Drashta-Demo Client
 
 ![Drashta-Demo Client Tech Stack](https://github-readme-tech-stack.vercel.app/api/cards?title=Drashta-Demo+Client+Tech+Stack&lineCount=3&bg=%230D1117&badge=%23161B22&border=%2321262D&titleColor=%2358A6FF&line1=tailwindcss%2Ctailwindcss%2C06B6D4%3Bchartdotjs%2Cchart.js%2CFF6384%3Btabulator%2Ctabulator%2C3FB449%3B&line2=typescript%2Ctypescript%2C3178C6%3Bsvelte%2Csvelte%2CFF3E00%3B&line3=Bun%2CBun%2Cababab%3Bvite%2Cvite%2C646CFF%3Beslint%2Ceslint%2C4B32C3%3Bprettier%2Cprettier%2CF7B93E%3B)
 
 
-Client for Drashta based on Sveltekit running on Bun
+Client for Drashta-Demo Prototype based on Sveltekit running on Bun
 
 # Features
 1. Dashboard System : Dashborad system based on chart.js, queries data and displays as chart configured in a json file
