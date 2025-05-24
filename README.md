@@ -18,8 +18,10 @@ Client for Drashta-Demo Prototype based on Sveltekit running on Bun
 
 # Running
 * Run these commands in sequence
-* `bun install`
-* `bun run dev`
 
-* open [`localhost:5173`](https://localhost:5173)
+`bun install`
+
+`bun run dev`
+
+open [`localhost:5173`](https://localhost:5173)
 
